@@ -17,7 +17,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class arm extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-
   CANSparkMax armMotor = new CANSparkMax(constants.armMotorID, MotorType.kBrushless);
 
   @Override
