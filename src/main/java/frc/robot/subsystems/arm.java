@@ -62,12 +62,18 @@ public class arm extends Subsystem {
     armClosedLoop = true; //setting flag that we have set up Closed loop parameters 
   }
 
-  public void setArmPosition(Double armSetPoint){
-    armPIDController.setReference(armSetPoint, ControlType.kSmartMotion);
+  public void setArmPosition(Integer armSetPoint){
+    if(armClosedLoop){
+      armPIDController.setReference(armSetPoint, ControlType.kSmartMotion);
+    }
   }
 
   public void setArmPercent(Double power){
     armMotor.set(power);
+  }
+
+  public void setArmEncoder(Integer setPoint){
+    armEncoder.setPosition(setPoint);
   }
 
   public void stopArm(){
@@ -84,5 +90,9 @@ public class arm extends Subsystem {
 
   public Boolean getLimitSwitch(){
     return endStop.get();
+  }
+
+  public Boolean getClosedLoopEnabled(){
+    return armClosedLoop;
   }
 }
