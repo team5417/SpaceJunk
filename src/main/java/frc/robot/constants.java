@@ -29,6 +29,9 @@ public class constants {
 
     //arm levels
     public final static int stowHeight = 0;
+    public final static int cargoIntakeHeight = 0;
+    public final static int hatchHeight = 0;
+    public final static int scoreCargoHeight = 0;
 
 
 }

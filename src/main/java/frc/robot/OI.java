@@ -9,6 +9,10 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.moveArm;
+import frc.robot.commands.zeroArm;
+import frc.robot.commands.commandGroups.setIntakeCargo;
+import frc.robot.commands.commandGroups.setIntakeHatch;
 
 /**
  * Add your docs here.
@@ -20,7 +24,7 @@ public class OI {
 
     public OI() {
 
-        
+        //assigning buttons to things
         JoystickButton aPad = new JoystickButton(xboxController,1);
 		JoystickButton bPad = new JoystickButton(xboxController,2);
 		JoystickButton xPad = new JoystickButton(xboxController,3);
@@ -34,5 +38,16 @@ public class OI {
 
 		JoystickButton leftJoystickButton = new JoystickButton(xboxController, 9);
 		JoystickButton rightJoystickButton = new JoystickButton(xboxController, 10);
+    
+        
+        //assigning commands to buttons presses/releases
+        menuButton.whenPressed(new zeroArm());
+
+        aPad.whileHeld(new setIntakeCargo());
+        bPad.whileHeld(new setIntakeHatch());
+        xPad.whileHeld(new moveArm(constants.scoreCargoHeight));
+        yPad.whileHeld(new moveArm(constants.hatchHeight));
+
+    
     }
 }
