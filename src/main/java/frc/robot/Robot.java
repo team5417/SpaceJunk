@@ -8,14 +8,13 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.arm;
 import frc.robot.subsystems.cargo;
-import frc.robot.subsystems.hatch;
 import frc.robot.subsystems.drive;
-import frc.robot.constants;
-
+import frc.robot.subsystems.hatch;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -109,5 +108,9 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void testPeriodic() {
+
+    Scheduler.getInstance().run();
+
+
   }
 }

@@ -13,4 +13,15 @@ package frc.robot;
 public class constants {
     public final static int armMotorID = 0; 
 
+
+    //switches
+    public final static int armEndStop = 0;
+
+    //arm closed loop config params
+    public final static int armP = 0;
+    public final static int armI = 0;
+    public final static int armD = 0;
+    public final static int armFF = 0;
+
+
 }

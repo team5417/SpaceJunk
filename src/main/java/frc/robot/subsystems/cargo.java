@@ -7,8 +7,9 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.constants;
 
 /**
  * Add your docs here.
@@ -16,6 +17,8 @@ import frc.robot.constants;
 public class cargo extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
+
+  TalonSRX topRoller = new TalonSRX(0);
 
   @Override
   public void initDefaultCommand() {

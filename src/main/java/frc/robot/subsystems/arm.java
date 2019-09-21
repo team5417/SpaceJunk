@@ -7,10 +7,16 @@
 
 package frc.robot.subsystems;
 
+import com.revrobotics.CANEncoder;
+import com.revrobotics.CANPIDController;
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.ControlType;
+import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-import frc.robot.constants;
+
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.constants;
 
 /**
  * Add your docs here.
@@ -19,11 +25,64 @@ public class arm extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
+
+  //init motor controller
   CANSparkMax armMotor = new CANSparkMax(constants.armMotorID, MotorType.kBrushless);
+  //init limit switch
+  DigitalInput endStop = new DigitalInput(constants.armEndStop);
+  //init PID controller for spark max
+  CANPIDController armPIDController = armMotor.getPIDController();
+  //init encoder that's on the neo for the spark max
+  CANEncoder armEncoder = armMotor.getEncoder();
+
+  
+  //boolean to check if we have set up the arms closed loop paramaters yet, you can see this turned true in a function below
+  public boolean armClosedLoop = false;
+
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+  }
+
+  public void configClosedLoop(){
+
+    //configuring PID and Feed Foward constants, as well as other constants
+    //Constants can be found in the constants.java folder
+    armMotor.setIdleMode(IdleMode.kBrake);
+
+    armPIDController.setP(constants.armP);
+    armPIDController.setI(constants.armI);
+    armPIDController.setD(constants.armD);
+    armPIDController.setFF(constants.armFF);
+    armPIDController.setOutputRange(-1, 1);
+
+    armPIDController.setSmartMotionMaxVelocity(150, 0); //max rpm of neo
+    armClosedLoop = true; //setting flag that we have set up Closed loop parameters 
+  }
+
+  public void setArmPosition(Double armSetPoint){
+    armPIDController.setReference(armSetPoint, ControlType.kSmartMotion);
+  }
+
+  public void setArmPercent(Double power){
+    armMotor.set(power);
+  }
+
+  public void stopArm(){
+    armMotor.stopMotor();
+  }
+
+  public Double getArmCurrent(){
+    return armMotor.getOutputCurrent();
+  }
+
+  public Double getArmPosition(){
+    return armEncoder.getPosition();
+  }
+
+  public Boolean getLimitSwitch(){
+    return endStop.get();
   }
 }
