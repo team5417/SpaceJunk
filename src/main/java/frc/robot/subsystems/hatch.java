@@ -23,7 +23,6 @@ public class hatch extends Subsystem {
   // here. Call these from Commands.
 
   Solenoid solenoid = new Solenoid(1);
-  VictorSPX intake = new VictorSPX(0);
   TalonSRX hatchRollers = new TalonSRX(constants.hatchMotorID);
 
   @Override
@@ -36,10 +35,6 @@ public class hatch extends Subsystem {
     if(button){
       solenoid.set(!solenoid.get());
     }
-  }
-
-  public void setIntake(){
-    
   }
 
   public void setHatchRollerPercent(Double power){
