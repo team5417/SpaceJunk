@@ -32,6 +32,16 @@ public class hatch extends Subsystem {
     // setDefaultCommand(new MySpecialCommand());
   }
 
+  public void toggleSolenoid(Boolean button){
+    if(button){
+      solenoid.set(!solenoid.get());
+    }
+  }
+
+  public void setIntake(){
+    
+  }
+
   public void setHatchRollerPercent(Double power){
     hatchRollers.set(ControlMode.PercentOutput, power);
   }
