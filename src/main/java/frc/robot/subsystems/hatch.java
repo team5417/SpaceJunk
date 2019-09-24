@@ -7,8 +7,10 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+import frc.robot.constants;
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -22,6 +24,7 @@ public class hatch extends Subsystem {
 
   Solenoid solenoid = new Solenoid(1);
   VictorSPX intake = new VictorSPX(0);
+  TalonSRX hatchRollers = new TalonSRX(constants.hatchMotorID);
 
   @Override
   public void initDefaultCommand() {
@@ -29,15 +32,7 @@ public class hatch extends Subsystem {
     // setDefaultCommand(new MySpecialCommand());
   }
 
-  public void setSolenoid(Boolean button){
-      if(button) {
-        solenoid.set(!solenoid.get());
-      }  
-  }
-
-  public void intakeControl(Boolean button1, Boolean button2){
-    if(button1){
-      intake.set(ControlMode., demand);
-    }
+  public void setHatchRollerPercent(Double power){
+    hatchRollers.set(ControlMode.PercentOutput, power);
   }
 }

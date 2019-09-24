@@ -7,6 +7,11 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.NeutralMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.constants;
 
@@ -17,9 +22,29 @@ public class cargo extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
+  TalonSRX topRoller = new TalonSRX(0);
+  DigitalInput cargoDetector = new DigitalInput(constants.cargoLimitSwitch);
+  
+
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+  }
+
+  public void configCargo(){
+    topRoller.setNeutralMode(NeutralMode.Brake);
+    topRoller.configPeakCurrentLimit(30);
+    topRoller.configPeakCurrentDuration(50);
+    topRoller.configContinuousCurrentLimit(20);
+    topRoller.enableCurrentLimit(true);
+  }
+
+  public void setRollerPercent(Double power){
+    topRoller.set(ControlMode.PercentOutput, power);
+  }
+
+  public Boolean getCargoDetector(){
+    return cargoDetector.get();
   }
 }

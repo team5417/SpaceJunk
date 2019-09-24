@@ -12,5 +12,26 @@ package frc.robot;
  */
 public class constants {
     public final static int armMotorID = 0; 
+    public final static int cargoMotorID = 0; 
+    public final static int hatchMotorID = 0;
+    
+
+
+    //switches
+    public final static int armEndStop = 0;
+    public final static int cargoLimitSwitch = 1;
+
+    //arm closed loop config params
+    public final static int armP = 0;
+    public final static int armI = 0;
+    public final static int armD = 0;
+    public final static int armFF = 0;
+
+    //arm levels
+    public final static int stowHeight = 0;
+    public final static int cargoIntakeHeight = 0;
+    public final static int hatchHeight = 0;
+    public final static int scoreCargoHeight = 0;
+
 
 }
