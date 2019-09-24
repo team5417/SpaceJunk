@@ -22,10 +22,10 @@ public class constants {
     public final static int cargoLimitSwitch = 1;
 
     //arm closed loop config params
-    public final static int armP = 0;
-    public final static int armI = 0;
-    public final static int armD = 0;
-    public final static int armFF = 0;
+    public static int armP = 0;
+    public static int armI = 0;
+    public static int armD = 0;
+    public static int armFF = 0;
 
     //arm levels
     public final static int stowHeight = 0;
