@@ -8,6 +8,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.moveArm;
 import frc.robot.commands.zeroArm;
@@ -19,7 +20,7 @@ import frc.robot.commands.commandGroups.setIntakeHatch;
  */
 public class OI {
     private XboxController xboxController = new XboxController(0);
-
+    private Hand rightHand = Hand.kRight; private Hand leftHand  = Hand.kLeft;
 
 
     public OI() {
@@ -47,7 +48,11 @@ public class OI {
         bPad.whileHeld(new setIntakeHatch());
         xPad.whileHeld(new moveArm(constants.scoreCargoHeight));
         yPad.whileHeld(new moveArm(constants.hatchHeight));
-
-    
+    }
+    public double leftSpeed() {
+        return xboxController.getY(leftHand);
+    }
+    public double rightSpeed() {
+        return xboxController.getY(rightHand);
     }
 }

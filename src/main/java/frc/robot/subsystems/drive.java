@@ -12,7 +12,7 @@ import frc.robot.constants;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
-
+import frc.robot.commands.driveJoystick;
 /**
  * Add your docs here.
  */
@@ -27,11 +27,7 @@ public class drive extends Subsystem {
   TalonSRX driveSlaveRight1 = new TalonSRX(5);
   TalonSRX driveSlaveRight2 = new TalonSRX(6);
 
-
-  @Override
-  public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
+  public drive(){
     driveSlaveLeft1.set(ControlMode.Follower, driveMasterLeft.getDeviceID());
     driveSlaveLeft2.set(ControlMode.Follower, driveMasterLeft.getDeviceID());
 
@@ -40,6 +36,12 @@ public class drive extends Subsystem {
 
     driveMasterRight.setNeutralMode(NeutralMode.Coast);
     driveMasterLeft.setNeutralMode(NeutralMode.Coast);
+  }
+  @Override
+  public void initDefaultCommand() {
+    // Set the default command for a subsystem here.
+    // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new driveJoystick());
 
   }
 

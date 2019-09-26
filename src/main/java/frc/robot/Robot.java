@@ -33,7 +33,7 @@ public class Robot extends TimedRobot {
   public static hatch hatch;
   public static cargo cargo;
   public static arm arm;
-
+  public static OI OI;
   /**
    * This function is run when the robot is first started up and should be
    * used for any initialization code.
@@ -48,6 +48,7 @@ public class Robot extends TimedRobot {
     arm = new arm();
     cargo = new cargo();
     hatch = new hatch();
+    OI= new OI();
   }
 
   /**
