@@ -16,7 +16,9 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.constants;
+import frc.robot.commands.armTrigger;
 
 /**
  * Add your docs here.
@@ -28,6 +30,8 @@ public class arm extends Subsystem {
 
   //init motor controller
   CANSparkMax armMotor = new CANSparkMax(constants.armMotorID, MotorType.kBrushless);
+  CANSparkMax armMotorSlave = new CANSparkMax(constants.armMotorSlaveID, MotorType.kBrushless);
+
   //init limit switch
   DigitalInput endStop = new DigitalInput(constants.armEndStop);
   //init PID controller for spark max
@@ -44,6 +48,7 @@ public class arm extends Subsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new armTrigger());
   }
 
   public void configClosedLoop(){
@@ -70,6 +75,8 @@ public class arm extends Subsystem {
 
   public void setArmPercent(Double power){
     armMotor.set(power);
+    SmartDashboard.putNumber("Voltage", power);
+    SmartDashboard.putNumber("Encoder", getArmPosition());
   }
 
   public void setArmEncoder(Integer setPoint){

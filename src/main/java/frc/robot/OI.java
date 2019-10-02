@@ -7,10 +7,11 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.moveArm;
+import frc.robot.commands.outtakeHatch;
 import frc.robot.commands.zeroArm;
 import frc.robot.commands.commandGroups.setIntakeCargo;
 import frc.robot.commands.commandGroups.setIntakeHatch;
@@ -48,11 +49,16 @@ public class OI {
         bPad.whileHeld(new setIntakeHatch());
         xPad.whileHeld(new moveArm(constants.scoreCargoHeight));
         yPad.whileHeld(new moveArm(constants.hatchHeight));
+        leftBump.whenPressed(new outtakeHatch(true));
     }
     public double leftSpeed() {
         return xboxController.getY(leftHand);
     }
     public double rightSpeed() {
         return xboxController.getY(rightHand);
+    }
+
+    public double armSpeed() {
+        return xboxController.getTriggerAxis(rightHand);
     }
 }

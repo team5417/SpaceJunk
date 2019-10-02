@@ -4,10 +4,10 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 
-public class driveJoystick extends Command{
+public class armTrigger extends Command{
 
-  public driveJoystick(){
-    requires(Robot.drive);
+  public armTrigger(){
+    requires(Robot.arm);
   }
 
     // Called just before this Command runs the first time
@@ -18,7 +18,7 @@ public class driveJoystick extends Command{
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-   Robot.drive.SetPower(Robot.OI.leftSpeed(), Robot.OI.rightSpeed());
+   Robot.arm.setArmPercent(Robot.OI.armSpeed());
   }
 
   // Make this return true when this Command no longer needs to run execute()

@@ -22,7 +22,7 @@ public class cargo extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  TalonSRX topRoller = new TalonSRX(0);
+  TalonSRX topRoller = new TalonSRX(constants.cargoMotorID);
   DigitalInput cargoDetector = new DigitalInput(constants.cargoLimitSwitch);
   
 

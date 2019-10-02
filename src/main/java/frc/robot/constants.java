@@ -11,11 +11,17 @@ package frc.robot;
  * Add your docs here.
  */
 public class constants {
-    public final static int armMotorID = 0; 
-    public final static int cargoMotorID = 0; 
-    public final static int hatchMotorID = 0;
-    
+    public final static int armMotorID = 30; 
+    public final static int armMotorSlaveID = 31;
+    public final static int cargoMotorID = 18; 
+    public final static int hatchMotorID = 22;
 
+    public final static int right1 = 3;
+    public final static int right2 = 4;
+    public final static int right3 = 5;
+    public final static int left1 = 2;
+    public final static int left2 = 1;
+    public final static int left3 = 21;
 
     //switches
     public final static int armEndStop = 0;

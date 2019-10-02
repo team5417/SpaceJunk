@@ -56,5 +56,6 @@ public class outtakeCargo extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    Robot.cargo.setRollerPercent(0.0);
   }
 }

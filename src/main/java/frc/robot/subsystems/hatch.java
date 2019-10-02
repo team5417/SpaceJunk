@@ -23,7 +23,7 @@ public class hatch extends Subsystem {
   // here. Call these from Commands.
 
   Solenoid solenoid = new Solenoid(1);
-  TalonSRX hatchRollers = new TalonSRX(constants.hatchMotorID);
+  VictorSPX hatchRollers = new VictorSPX(constants.hatchMotorID);
 
   @Override
   public void initDefaultCommand() {

@@ -26,8 +26,6 @@ public class intakeHatch extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    intakeState = false;
-    isFinished = false;
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -57,5 +55,6 @@ public class intakeHatch extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+    Robot.hatch.setHatchRollerPercent(0.0);
   }
 }
