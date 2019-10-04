@@ -8,27 +8,15 @@
 package frc.robot.commands.commandGroups;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import frc.robot.commands.intakeCargo;
+import frc.robot.commands.intakeHatch;
 
 public class intake extends CommandGroup {
   /**
    * Add your docs here.
    */
   public intake() {
-    // Add Commands here:
-    // e.g. addSequential(new Command1());
-    // addSequential(new Command2());
-    // these will run in order.
-
-    // To run multiple commands at the same time,
-    // use addParallel()
-    // e.g. addParallel(new Command1());
-    // addSequential(new Command2());
-    // Command1 and Command2 will run in parallel.
-
-    // A command group will require all of the subsystems that each member
-    // would require.
-    // e.g. if Command1 requires chassis, and Command2 requires arm,
-    // a CommandGroup containing them would require both the chassis and the
-    // arm.
+    addParallel(new intakeCargo(true));
+    addParallel(new intakeHatch(true));
   }
 }

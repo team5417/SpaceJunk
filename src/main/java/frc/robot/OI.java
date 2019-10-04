@@ -11,9 +11,8 @@ import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.moveArm;
-import frc.robot.commands.outtakeCargo;
-import frc.robot.commands.outtakeHatch;
 import frc.robot.commands.zeroArm;
+import frc.robot.commands.commandGroups.intake;
 import frc.robot.commands.commandGroups.outtake;
 import frc.robot.commands.commandGroups.setIntakeCargo;
 import frc.robot.commands.commandGroups.setIntakeHatch;
@@ -45,13 +44,14 @@ public class OI {
     
         
         //assigning commands to buttons presses/releases
-        menuButton.whenPressed(new zeroArm());
+        //menuButton.whenPressed(new zeroArm());
 
-        aPad.whileHeld(new setIntakeCargo());
-        bPad.whileHeld(new setIntakeHatch());
-        xPad.whileHeld(new moveArm(constants.scoreCargoHeight));
-        yPad.whileHeld(new moveArm(constants.hatchHeight));
+        // aPad.whileHeld(new setIntakeCargo());
+        // bPad.whileHeld(new setIntakeHatch());
+        // xPad.whileHeld(new moveArm(constants.scoreCargoHeight));
+        // yPad.whileHeld(new moveArm(constants.hatchHeight));
         leftBump.whileHeld(new outtake());
+        rightBump.whileHeld(new intake());
         
 
 
