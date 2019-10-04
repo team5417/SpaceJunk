@@ -64,10 +64,13 @@ public class arm extends Subsystem {
     armPIDController.setOutputRange(-1, 1);
 
     armPIDController.setSmartMotionMaxVelocity(150, 0); //max rpm of neo
+
+    armMotor.setSmartCurrentLimit(25);
+    armMotorSlave.setSmartCurrentLimit(25);
     armClosedLoop = true; //setting flag that we have set up Closed loop parameters 
   }
 
-  public void setArmPosition(Integer armSetPoint){
+  public void setArmPosition(Double armSetPoint){
     if(armClosedLoop){
       armPIDController.setReference(armSetPoint, ControlType.kSmartMotion);
     }

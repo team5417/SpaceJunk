@@ -13,9 +13,9 @@ import frc.robot.Robot;
 public class moveArm extends Command {
 
   boolean isFinished;
-  Integer armPosition;
+  Double armPosition;
 
-  public moveArm(Integer position) {
+  public moveArm(Double position) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.arm);

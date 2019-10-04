@@ -22,7 +22,7 @@ public class hatch extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  Solenoid solenoid = new Solenoid(1);
+  //Solenoid solenoid = new Solenoid(1);
   VictorSPX hatchRollers = new VictorSPX(constants.hatchMotorID);
 
   @Override
@@ -33,7 +33,7 @@ public class hatch extends Subsystem {
 
   public void toggleSolenoid(Boolean button){
     if(button){
-      solenoid.set(!solenoid.get());
+     // solenoid.set(!solenoid.get());
     }
   }
 

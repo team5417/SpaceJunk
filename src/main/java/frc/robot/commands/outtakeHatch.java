@@ -26,15 +26,14 @@ public class outtakeHatch extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    outtakeState = false;
-    isFinished = false;
+
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
     if(outtakeState){
-      Robot.hatch.setHatchRollerPercent(-1.0);
+      Robot.hatch.setHatchRollerPercent(1.0);
     }
     else{
       isFinished = true;

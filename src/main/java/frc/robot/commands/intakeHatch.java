@@ -32,7 +32,7 @@ public class intakeHatch extends Command {
   @Override
   protected void execute() {
     if(intakeState){
-      Robot.hatch.setHatchRollerPercent(1.0);
+      Robot.hatch.setHatchRollerPercent(-1.0);
     }
     else{
       isFinished = true;

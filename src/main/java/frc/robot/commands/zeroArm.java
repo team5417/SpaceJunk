@@ -40,7 +40,7 @@ public class zeroArm extends Command {
       }
     }
     else { //if arm IS configured for closed loop, go to the zero point, and reset to new 0
-      Robot.arm.setArmPosition(0);
+      Robot.arm.setArmPosition(0.0);
       if(Robot.arm.getLimitSwitch()){
         Robot.arm.setArmEncoder(0);
         isFinished = true; //End command

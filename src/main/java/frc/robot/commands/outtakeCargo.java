@@ -33,7 +33,7 @@ public class outtakeCargo extends Command {
   @Override
   protected void execute() {
     if(outtakeState){
-      Robot.cargo.setRollerPercent(-1.0);
+      Robot.cargo.setRollerPercent(1.0);
     }
     else{
       isFinished = true;
