@@ -65,8 +65,8 @@ public class arm extends Subsystem {
 
     armPIDController.setSmartMotionMaxVelocity(150, 0); //max rpm of neo
 
-    armMotor.setSmartCurrentLimit(25);
-    armMotorSlave.setSmartCurrentLimit(25);
+    armMotor.setSmartCurrentLimit(20);
+    armMotorSlave.setSmartCurrentLimit(20);
     armClosedLoop = true; //setting flag that we have set up Closed loop parameters 
   }
 
@@ -78,6 +78,7 @@ public class arm extends Subsystem {
 
   public void setArmPercent(Double power){
     armMotor.set(power);
+    armMotorSlave.set(power);
     SmartDashboard.putNumber("Voltage", power);
     SmartDashboard.putNumber("Encoder", getArmPosition());
   }

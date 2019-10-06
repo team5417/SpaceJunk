@@ -64,6 +64,6 @@ public class OI {
     }
 
     public double armSpeed() {
-        return xboxController.getTriggerAxis(leftHand) - xboxController.getTriggerAxis(rightHand);
+        return (xboxController.getTriggerAxis(leftHand) - xboxController.getTriggerAxis(rightHand)) * .8;
     }
 }
