@@ -11,7 +11,7 @@ import jaci.pathfinder.Trajectory;
 import jaci.pathfinder.followers.EncoderFollower;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
-public class auton extends TimedRobot{
+/*public class auton extends TimedRobot{
   private static final int k_ticks_per_rev = 100;
   private static final double k_wheel_diameter = 3.0;
   private static final double k_max_velocity = 10;
@@ -47,4 +47,4 @@ public class auton extends TimedRobot{
     m_right_encoder = new Encoder(k_right_encoder_port_a, k_right_encoder_port_b);
     m_gyro = new AnalogGyro(k_gyro_port);
   }
-}
+}*/
